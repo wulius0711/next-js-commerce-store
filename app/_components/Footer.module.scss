@@ -1,0 +1,19 @@
+.footer {
+  display: flex;
+  width: 100vw;
+  padding: 0px 40px;
+  align-items: center;
+  justify-content: space-around;
+  width: 1280px;
+  margin: auto;
+  font-family: 'Play', sans-serif;
+  margin-top: 2.5rem;
+
+  .footerContent {
+    display: flex;
+    padding: 1rem 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}

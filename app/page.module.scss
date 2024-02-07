@@ -1,0 +1,36 @@
+.hero {
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 595px;
+  display: flex;
+  justify-content: space-between;
+
+  .heroLeft {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    padding: 120px 40px 40px 80px;
+    //width: fit-content;
+
+    & h1 {
+      color: #000;
+      font-size: 4em;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 5rem;
+      font-family: 'Play';
+      margin-bottom: 40px;
+      text-wrap: balance;
+    }
+  }
+  .heroRight {
+    width: 50%;
+    padding: 40px;
+    float: left;
+
+    & img {
+      width: 500px;
+      height: auto;
+    }
+  }
+}
