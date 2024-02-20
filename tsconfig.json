@@ -16,12 +16,6 @@
     "**/*.jsx",
     "**/*.cjs",
     "**/*.mjs",
-    ".next/types/**/*.ts",
-    ".next/types/app/products/[products]/page.js",
-    ".next/types/app/page.js",
-    ".next/types/app/layout.js",
-    ".next/types/app/products/page.js",
-    ".next/types/app/contact/page.js",
-    ".next/types/app/about/page.js"
+    ".next/types/**/*.ts"
   ]
 }

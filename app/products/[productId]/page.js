@@ -1,18 +1,18 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { getProduct } from '../../../database/products';
+import { getProductInsecure } from '../../../database/products';
 import productStyles from '../Products.module.scss';
 
 // or Dynamic metadata
-export function generateMetadata(props) {
-  const singleProduct = getProduct(Number(props.params.productId));
+export async function generateMetadata(props) {
+  const singleProduct = await getProductInsecure(props.params.productId);
   return {
-    title: singleProduct.productName,
+    title: singleProduct.name,
   };
 }
 
-export default function ProductPage(props) {
-  const singleProduct = getProduct(Number(props.params.productId));
+export default async function ProductPage(props) {
+  const singleProduct = await getProductInsecure(props.params.productId);
   console.log('Check: ', singleProduct);
 
   if (!singleProduct) {
@@ -22,11 +22,11 @@ export default function ProductPage(props) {
   return (
     <div className={productStyles.container}>
       <div className={productStyles.headline}>
-        <h1>{singleProduct.productName}</h1>
+        <h1>{singleProduct.name}</h1>
 
         <Image
-          src={`/images/products/${singleProduct.productName}.png`}
-          alt={singleProduct.productName}
+          src={`/images/products/${singleProduct.name}.png`}
+          alt={singleProduct.name}
           width={240}
           height={240}
         />

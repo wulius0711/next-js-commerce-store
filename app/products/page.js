@@ -2,7 +2,7 @@ import '@fontsource/play';
 import '@fontsource-variable/open-sans';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getProducts } from '../../database/products';
+import { getProductsInsecure } from '../../database/products';
 // import loudspeaker from '../../public/images/products/loudspeaker.png';
 // import radio from '../../public/images/products/radio.png';
 // import walkman from '../../public/images/products/sony-walkman.png';
@@ -14,8 +14,8 @@ export const metadata = {
   description: 'best products in town',
 };
 
-export default function ProductsPage() {
-  const products = getProducts();
+export default async function ProductsPage() {
+  const products = await getProductsInsecure();
   return (
     <div className={productStyles.container}>
       <div className={productStyles.headline}>
@@ -27,18 +27,18 @@ export default function ProductsPage() {
           return (
             <div key={`products-${product.id}`}>
               <Link href={`/products/${product.id}`}>
-                {/* <div>{product.productName}</div> */}
+                {/* <div>{product.name}</div> */}
 
                 <Image
-                  src={`/images/products/${product.productName.toLowerCase()}.png`}
-                  alt={product.productName}
+                  src={`/images/products/${product.name.toLowerCase()}.png`}
+                  alt={product.name}
                   width={240}
                   height={240}
                 />
 
                 <div className={productStyles.productInfos}>
                   <div className={productStyles.productTitle}>
-                    {product.productName}
+                    {product.name}
                   </div>
                   <div className={productStyles.productPrice}>
                     {product.price} €
