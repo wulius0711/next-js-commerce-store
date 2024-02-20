@@ -40,13 +40,14 @@ import { sql } from './connect';
 //   `.then((data) => console.log('Products: ', data)),
 // );
 
-type Product = {
-  id: number;
-  name: string;
-  type: string;
-  description: string | null;
-  price: number;
-};
+// Was copy-pasted to 00000-createTableProducts.ts and now undefined here below.
+// type Product = {
+//   id: number;
+//   name: string;
+//   type: string;
+//   description: string | null;
+//   price: number;
+// };
 
 export const getProductsInsecure = cache(async () => {
   const products = await sql<Product[]>`

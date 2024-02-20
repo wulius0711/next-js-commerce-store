@@ -23,6 +23,7 @@ export default async function ProductPage(props) {
     <div className={productStyles.container}>
       <div className={productStyles.headline}>
         <h1>{singleProduct.name}</h1>
+        <div>{singleProduct.type}</div>
 
         <Image
           src={`/images/products/${singleProduct.name}.png`}
